@@ -9,7 +9,7 @@ import streamlit as st
 import pandas as pd
 import random
 
-st.title("Antibiotic Resistance Simulator")
+st.title("Antibiotic Resistance Simulator test")
 
 st.write("""
 This simulation shows how antibiotic resistance can evolve in a bacterial population.
