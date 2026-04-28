@@ -31,7 +31,7 @@ with col1:
     initial_resistant = st.number_input("Initial Resistant Bacteria", 0, 10000, 10)
 
 with col2:
-    mutation_rate = st.slider("Mutation Rate", 0.0, 0.01, 0.001)
+    mutation_rate = st.slider("Mutation Rate", 0.0, 0.1, 0.01)
     transfer_rate = st.slider("Horizontal Gene Transfer Rate", 0.0, 0.5, 0.01)
     growth_rate = st.slider("Bacterial Growth Rate", 1.0, 3.0, 1.5)
 
