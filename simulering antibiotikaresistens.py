@@ -49,27 +49,56 @@ antibiotic_strength = int(antibiotic_level[0]) * 0.15
 
 def simulate_step(sensitive, resistant):
 
-    # reproduction
+    total = sensitive + resistant
+    if total == 0:
+        return 0, 0
+
+    # =====================================================
+    # 1. TILLVÄXT
+    # =====================================================
     sensitive *= growth_rate
     resistant *= growth_rate
 
-    # mutation: sensitive -> resistant
+    # =====================================================
+    # 2. MUTATION (S -> R)
+    # =====================================================
     mutations = sensitive * mutation_rate
     sensitive -= mutations
     resistant += mutations
 
-    # horizontal gene transfer
-    if sensitive + resistant > 0:
-        transfers = sensitive * transfer_rate * (resistant/(sensitive+resistant))
-        sensitive -= transfers
-        resistant += transfers
+    # =====================================================
+    # 3. HORIZONTAL GENE TRANSFER
+    # =====================================================
+    transfer = sensitive * transfer_rate * (resistant / (sensitive + resistant))
+    sensitive -= transfer
+    resistant += transfer
 
-    # antibiotic kills sensitive bacteria
-    sensitive *= (1 - antibiotic_strength*0.5)
+    # =====================================================
+    # 4. ANTIBIOTIKA (SELEKTION)
+    # =====================================================
+    # Känsliga dör mycket
+    sensitive *= (1 - antibiotic_strength * 0.7)
+
+    # Resistenta dör lite (kostnad finns)
+    resistant *= (1 - antibiotic_strength * 0.1)
+
+    # =====================================================
+    # 5. SELEKTIONSFÖRDEL FÖR RESISTENTA
+    # =====================================================
+    resistant *= (1 + antibiotic_strength * 0.3)
+
+    # =====================================================
+    # 6. HÅLL POPULATIONEN STABIL (undvik explosion/kollaps)
+    # =====================================================
+    total = sensitive + resistant
+    max_pop = 100000
+
+    if total > max_pop:
+        scale = max_pop / total
+        sensitive *= scale
+        resistant *= scale
 
     return sensitive, resistant
-
-
 # =====================================================
 # RUN SIMULATION
 # =====================================================
