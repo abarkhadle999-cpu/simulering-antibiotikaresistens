@@ -65,7 +65,7 @@ def simulate_step(sensitive, resistant):
         resistant += transfers
 
     # antibiotic kills sensitive bacteria
-    sensitive *= (1 - antibiotic_strength)
+    sensitive *= (1 - antibiotic_strength*0.5)
 
     return sensitive, resistant
 
