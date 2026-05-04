@@ -77,10 +77,10 @@ def simulate_step(sensitive, resistant):
     # 4. ANTIBIOTIKA (SELEKTION)
     # =====================================================
     # Känsliga dör mycket
-    sensitive *= (1 - antibiotic_strength*0.7 )
+    sensitive *= (1 - antibiotic_strength*0.5 )
 
     # Resistenta dör lite (kostnad finns)
-    resistant *= (1 - antibiotic_strength*0.1 )
+    resistant *= (1 - antibiotic_strength )
 
     # =====================================================
     # 5. SELEKTIONSFÖRDEL FÖR RESISTENTA
