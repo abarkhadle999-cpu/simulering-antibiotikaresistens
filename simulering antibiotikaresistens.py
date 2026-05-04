@@ -32,7 +32,7 @@ with col1:
 
 with col2:
     mutation_rate = st.slider("Mutation Rate", 0.0, 0.1, 0.01)
-    transfer_rate = st.slider("Horizontal Gene Transfer Rate", 0.0, 0.5, 0.01)
+    transfer_rate = st.slider("Horizontal Gene Transfer Rate", 0.0, 0.10, 0.01)
     growth_rate = st.slider("Bacterial Growth Rate", 1.0, 3.0, 1.5)
 
 antibiotic_level = st.selectbox(
