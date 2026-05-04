@@ -77,10 +77,10 @@ def simulate_step(sensitive, resistant):
     # 4. ANTIBIOTIKA (SELEKTION)
     # =====================================================
     # Känsliga dör mycket
-    sensitive *= (1 - antibiotic_strength*0.1 )
+    sensitive *= (1 - antibiotic_strength )
 
     # Resistenta dör lite (kostnad finns)
-    resistant *= (1 - antibiotic_strength*0.1 )
+    resistant *= (1 - antibiotic_strength )
 
     # =====================================================
     # 5. SELEKTIONSFÖRDEL FÖR RESISTENTA
@@ -91,7 +91,7 @@ def simulate_step(sensitive, resistant):
     # 6. HÅLL POPULATIONEN STABIL (undvik explosion/kollaps)
     # =====================================================
     total = sensitive + resistant
-    max_pop = 100000
+    max_pop = 1000000
 
     if total > max_pop:
         scale = max_pop / total
