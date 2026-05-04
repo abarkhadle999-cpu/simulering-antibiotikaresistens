@@ -56,13 +56,14 @@ def simulate_step(sensitive, resistant):
     # =====================================================
     # 1. TILLVÄXT
     # =====================================================
-    sensitive *= growth_rate
-    resistant *= growth_rate
+    #sensitive *= growth_rate
+    #resistant *= growth_rate
 
     # =====================================================
     # 2. MUTATION (S -> R)
     # =====================================================
-    mutations = sensitive * mutation_rate
+    # mutations = sensitive * mutation_rate
+    mutations = sensitive * growth_rate * mutation_rate
     sensitive -= mutations
     resistant += mutations
 
