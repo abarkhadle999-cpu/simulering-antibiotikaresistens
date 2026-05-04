@@ -91,7 +91,7 @@ def simulate_step(sensitive, resistant):
     # 6. HÅLL POPULATIONEN STABIL (undvik explosion/kollaps)
     # =====================================================
     total = sensitive + resistant
-    max_pop = 1000000
+    max_pop = 100000
 
     if total > max_pop:
         scale = max_pop / total
