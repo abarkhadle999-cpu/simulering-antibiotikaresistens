@@ -27,7 +27,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     generations = st.number_input("Time Steps", 10, 500, 100)
-    initial_sensitive = st.number_input("Initial Sensitive Bacteria", 100, 100000, 1000)
+    initial_sensitive = st.number_input("Initial Sensitive Bacteria", 100, 100000, 100000)
     initial_resistant = st.number_input("Initial Resistant Bacteria", 0, 10000, 10)
 
 with col2:
